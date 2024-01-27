@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+    <script>
+        function validate(){
+            var emailInput = document.getElementById("email");
+            var passwordInput = document.getElementById("password");
+            var isValid = true;
+        
+            // Check email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                alert("Please enter a valid email address.");
+                isValid = false;
+            }
+        
+            // Check password length
+            if (passwordInput.value.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                isValid = false;
+            }
+        
+            // If validation failed, prevent form submission
+            if (!isValid) {
+                event.preventDefault();
+            }
+        }
+        
+    </script>
+    <style>
+        body{
+            background-color: black;
+            color:white;
+            font-size: 2rem;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .align{
+            margin-left: 30%;
+        }
+        input{
+            height:2rem;
+            width:14rem;
+            border-width: 4px;
+            border-radius: 7px;
+            border-color: black ;
+        }
+        h1{
+            font-size: 2.6rem;
+            margin:20px;
+        }
+        button{
+            height:2rem;
+            width:7rem;
+            border-width: 4px;
+            border-radius: 7px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .submit{
+            height:2rem;
+            width:7rem;
+            border-width: 4px;
+            border-radius: 7px;
+        }
+        .submit:hover{
+            cursor: pointer;
+        }
+        .color{
+            background-image: linear-gradient(to right,#C33764,#1D2671);
+            margin-left:20%;
+            margin-right:20%;
+            margin-top:10%;
+            border: 1px solid white;
+            border-radius: 7px;
+            border-color: white;
+            padding-top:5px;
+        }
+        p{
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="color">
+    <h1 style="margin-left: 43%">Sign-up</h1>
+    <div class="align">
+    <form method="post" onsubmit="return validate()" action="signup.php">
+        <label for="mail">User name:</label>
+        <input type="email" placeholder="Gmail" name="email" id="email" style="margin-left:20px;">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" placeholder="password" name="password" id="password" style="margin-left:30px; ">
+        <br>
+        <br>
+        <input type="submit" style="margin-left:25%" name="button" class="submit">
+    </form>
+    <button style="margin-left:25%;" onclick="location.href='login.php'">login</button>
+        <br>
+        <br>
+    </div>
+    </div>
+</body>
+</html>
